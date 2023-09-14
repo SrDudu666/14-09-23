@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tratamento de Erro</title>
+</head>
+<body>
+    <h1>Tratamento de Erro</h1>
+    <div id="errorDisplay"></div>
+
+    <script>
+        // Função para simular uma situação aleatória de erro
+        function simulateRandomError() {
+            var randomNumber = Math.random();
+
+            // Lança um erro se o número gerado for menor que 0,5
+            if (randomNumber < 0.5) {
+                throw new Error("Erro Aleatório: Propriedade indefinida acessada");
+            }
+
+            // Caso contrário, retorna um objeto
+            return {
+                mensagem: "Operação bem-sucedida",
+            };
+        }
+
+        // Elemento div onde a mensagem de erro será exibida
+        var errorDisplay = document.getElementById("errorDisplay");
+
+        try {
+            // Tenta executar a função que pode lançar um erro
+            var resultado = simulateRandomError();
+
+            // Exibe a mensagem de sucesso na página
+            errorDisplay.textContent = "Resultado: " + resultado.mensagem;
+        } catch (error) {
+            // Captura e exibe a mensagem de erro em caso de erro
+            errorDisplay.textContent = "Erro: " + error.message;
+        }
+    </script>
+</body>
+</html>
