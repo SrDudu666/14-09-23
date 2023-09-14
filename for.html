@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de Números Aleatórios</title>
+</head>
+<body>
+    <h1>Tabela de Números Aleatórios</h1>
+    <table border="1">
+        <tr>
+            <th>Número</th>
+            <th>Valor Aleatório</th>
+        </tr>
+        <tbody id="randomNumberTable"></tbody>
+    </table>
+
+    <script>
+        // Função para gerar um número aleatório entre 1 e 100
+        function getRandomNumber() {
+            return Math.floor(Math.random() * 100) + 1;
+        }
+
+        // Elemento tbody onde os números aleatórios serão exibidos
+        var tbody = document.getElementById("randomNumberTable");
+
+        // Número de linhas na tabela
+        var numRows = 5; // Altere para o número desejado de linhas
+
+        // Criação das linhas da tabela com números aleatórios
+        for (var i = 1; i <= numRows; i++) {
+            var randomNumber = getRandomNumber();
+
+            var row = document.createElement("tr");
+
+            var cell1 = document.createElement("td");
+            cell1.textContent = "Número " + i;
+
+            var cell2 = document.createElement("td");
+            cell2.textContent = randomNumber;
+
+            row.appendChild(cell1);
+            row.appendChild(cell2);
+
+            tbody.appendChild(row);
+        }
+    </script>
+</body>
+</html>
